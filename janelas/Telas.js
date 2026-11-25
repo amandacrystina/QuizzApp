@@ -1,6 +1,46 @@
-import React from 'react';
-import { Pressable, Text, TextInput, View } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { Pressable, Text, TextInput, View, Animated } from 'react-native';
 import { estilos } from '../css/estilos';
+
+function FloatingImage({ source, style, distance = 12, duration = 1200, delay = 0 }) {
+  const translateY = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const animation = Animated.sequence([
+      Animated.delay(delay),
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(translateY, {
+            toValue: -distance, // sobe
+            duration,
+            useNativeDriver: true,
+          }),
+          Animated.timing(translateY, {
+            toValue: 0, // volta ao centro
+            duration,
+            useNativeDriver: true,
+          }),
+        ])
+      ),
+    ]);
+
+    animation.start();
+
+    return () => animation.stop();
+  }, [translateY, distance, duration, delay]);
+
+  return (
+    <Animated.Image
+      source={source}
+      resizeMode="contain"
+      style={[
+        estilos.image,
+        style,
+        { transform: [{ translateY }] },
+      ]}
+    />
+  );
+}
 
 function Botao({ texto, acao, desabilitado = false }) {
   return (
@@ -80,15 +120,25 @@ export function Pergunta({ pergunta, indice, total, selecao, selecionar, confirm
 
 export function Resultado({ acertos, nome, total, reiniciar }) {
   return (
-    <View style={estilos.painel}>
-      <Text style={estilos.marca}>QUIZZZZ</Text>
-      <Text accessibilityRole="header" style={estilos.titulo}>Resultado</Text>
-      <View style={estilos.cartaoNota}>
-        <Text style={estilos.descricao}>Pontuação</Text>
-        <Text style={estilos.nota}>{acertos}/{total}</Text>
-        <Text style={estilos.descricao}>{nome}, você acertou {acertos} de {total} perguntas.</Text>
-      </View>
-      <Botao texto="Jogar novamente" acao={reiniciar} />
+    <View>
+        <View style={estilos.painel}>
+          <Text accessibilityRole="header" style={estilos.titulo}>Resultado</Text>
+          <View style={estilos.cartaoNota}>
+            <Text style={estilos.descricao}>Pontuação</Text>
+            <Text style={estilos.nota}>{acertos}/{total}</Text>
+            <Text style={estilos.descricao}>{nome}, você acertou {acertos} de {total} perguntas.</Text>
+          </View>
+          <Botao texto="Jogar novamente" acao={reiniciar} />
+        </View>
+        <View>
+          <Text>{"\n"}{"\n"}{"\n"}{"\n"}</Text>
+        </View>
+        <FloatingImage
+                source={require('../css/img/resultado.png')}
+                distance={14}
+                duration={1100}
+                delay={0}
+              />
     </View>
   );
 }

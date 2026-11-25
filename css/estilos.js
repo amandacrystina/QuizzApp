@@ -41,4 +41,24 @@ export const estilos = StyleSheet.create({
   pressionado: { opacity: 0.82 },
   cartaoNota: { backgroundColor: '#0d1424', padding: 20, borderRadius: 14, gap: 7 },
   nota: { color: destaque, fontSize: 40, fontWeight: '800' },
+    
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 16, // espaçamento entre as duas imagens
+  },
+  image: {
+    position: 'absolute',
+    right: -50,
+    bottom: -270,
+    width: 350,
+    height: 350,
+  },
 });
