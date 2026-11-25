@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Pressable, Text, TextInput, View, Animated } from 'react-native';
+import { Animated, Image, Pressable, Text, TextInput, View } from 'react-native';
 import { estilos } from '../css/estilos';
 
 function FloatingImage({ source, style, distance = 12, duration = 1200, delay = 0 }) {
@@ -42,43 +42,91 @@ function FloatingImage({ source, style, distance = 12, duration = 1200, delay = 
   );
 }
 
-function Botao({ texto, acao, desabilitado = false }) {
+function Botao({ texto, acao, desabilitado = false, secundario = false }) {
   return (
     <Pressable
       accessibilityRole="button"
       accessibilityState={{ disabled: desabilitado }}
       disabled={desabilitado}
       onPress={acao}
-      style={({ pressed }) => [estilos.botao, desabilitado && estilos.desabilitado, pressed && estilos.pressionado]}
+      style={({ pressed }) => [
+        estilos.botao,
+        secundario && estilos.botaoSecundario,
+        desabilitado && estilos.desabilitado,
+        pressed && estilos.pressionado,
+      ]}
     >
-      <Text style={estilos.textoBotao}>{texto}</Text>
+      <Text style={[estilos.textoBotao, secundario && estilos.textoSecundario]}>{texto}</Text>
     </Pressable>
   );
 }
 
-export function Inicio({ total, nome, alterarNome, iniciar }) {
+function Mascote() {
   return (
-    <View style={estilos.painel}>
-      <Text style={estilos.marca}>QUIZZZZ</Text>
-      <Text accessibilityRole="header" style={estilos.titulo}>Quiz de desenvolvimento web</Text>
-      <Text style={estilos.descricao}>{total} perguntas de múltipla escolha. Cada acerto vale 1 ponto.</Text>
+    <View style={estilos.areaMascote}>
+      <View style={estilos.haloMascote} />
+      <Image source={require('../css/img/resultado.png')} resizeMode="contain" style={estilos.mascote} />
+    </View>
+  );
+}
+
+export function Inicio({ jogar, abrirSobre }) {
+  return (
+    <View style={[estilos.painel, estilos.painelEntrada]}>
+      <View style={estilos.cabecalhoInicio}>
+        <Text accessibilityRole="header" style={estilos.tituloInicio}>TecQuiz</Text>
+        <Text style={[estilos.descricao, estilos.centralizado]}>Teste seus conhecimentos em desenvolvimento web.</Text>
+      </View>
+      <View style={estilos.acoesInicio}>
+        <Botao texto="Jogar" acao={jogar} />
+        <Botao texto="Sobre" acao={abrirSobre} secundario />
+      </View>
+      <Mascote />
+    </View>
+  );
+}
+
+export function Sobre({ voltar }) {
+  return (
+    <View style={[estilos.painel, estilos.painelEntrada]}>
+      <Text accessibilityRole="header" style={estilos.titulo}>Sobre</Text>
+      <Text style={estilos.descricao}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </Text>
+      <Botao texto="Voltar ao início" acao={voltar} secundario />
+    </View>
+  );
+}
+
+export function Identificacao({ nome, alterarNome, iniciar, voltar }) {
+  return (
+    <View style={[estilos.painel, estilos.painelEntrada]}>
+      <View style={estilos.cabecalhoIdentificacao}>
+        <Pressable accessibilityRole="button" onPress={voltar} style={estilos.voltar}>
+          <Text style={estilos.textoVoltar}>← Voltar</Text>
+        </Pressable>
+        <Text accessibilityRole="header" style={estilos.titulo}>Identificação</Text>
+      </View>
       <View style={estilos.campo}>
-        <Text style={estilos.rotulo}>Seu nome</Text>
+        <Text style={estilos.rotulo}>NOME</Text>
         <TextInput
-          accessibilityLabel="Seu nome"
+          accessibilityLabel="Nome"
           autoCapitalize="words"
           autoComplete="name"
           maxLength={80}
           onChangeText={alterarNome}
           onSubmitEditing={iniciar}
-          placeholder="Digite seu nome"
+          placeholder="Digite seu nome ou apelido"
           placeholderTextColor="#b7c5db"
           returnKeyType="go"
           style={estilos.entrada}
           value={nome}
         />
       </View>
-      <Botao texto="Começar quiz" acao={iniciar} desabilitado={!nome.trim()} />
+      <Mascote />
+      <Botao texto="PRÓXIMO" acao={iniciar} desabilitado={!nome.trim()} />
     </View>
   );
 }
