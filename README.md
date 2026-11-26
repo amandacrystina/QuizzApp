@@ -4,6 +4,10 @@ Quiz de múltipla escolha sobre desenvolvimento de software, feito em JavaScript
 
 Na tela inicial, você pode jogar ou abrir a tela **Sobre**. Para jogar, informe seu nome, selecione uma alternativa por pergunta e confirme para avançar. A última tela mostra o total de acertos e permite iniciar uma nova partida. As perguntas ficam no próprio projeto e as respostas são mantidas em memória durante a partida.
 
+## Nome dos devs
+Amanda Crystina Gomes Gonzaga 
+Taynara Vital da Silva 
+
 ## Como rodar
 
 Você precisa de Git, Node.js e npm. A exportação web foi verificada com Node.js 24.14.1 e npm 11.4.1.
