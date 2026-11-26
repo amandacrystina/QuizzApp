@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const destaque = '#bdf870';
+const destaque = '#f8d470';
 const texto = '#f0f5ff';
 const textoSecundario = '#b7c5db';
 
@@ -14,7 +14,15 @@ export const estilos = StyleSheet.create({
   transicao: { width: '100%', maxWidth: 540 },
   painelEntrada: { paddingVertical: 28, gap: 24 },
   cabecalhoInicio: { alignItems: 'center', gap: 8 },
-  tituloInicio: { color: destaque, fontSize: 48, fontWeight: '900', letterSpacing: -2, textAlign: 'center' },
+
+  tituloInicio: { 
+    color: destaque, 
+    fontSize: 48, 
+    fontWeight: '900', 
+    letterSpacing: -2, 
+    textAlign: 'center',
+  },
+
   centralizado: { textAlign: 'center' },
   acoesInicio: { gap: 12 },
   cabecalhoIdentificacao: { gap: 8 },
@@ -73,9 +81,23 @@ export const estilos = StyleSheet.create({
   },
   image: {
     position: 'absolute',
-    right: -50,
-    bottom: -270,
+    right: 0,
+    bottom: -300,
     width: 380,
     height: 380,
+  },
+  image2: {
+    position: 'absolute',
+    bottom: -370,
+    width: 380,
+    height: 380,
+
+  },
+  image3: {
+    position: 'absolute',
+    bottom: -370,
+    width: 430,
+    height: 430,
+    right:-45,
   },
 });

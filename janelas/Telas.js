@@ -34,7 +34,6 @@ function FloatingImage({ source, style, distance = 12, duration = 1200, delay = 
       source={source}
       resizeMode="contain"
       style={[
-        estilos.image,
         style,
         { transform: [{ translateY }] },
       ]}
@@ -81,7 +80,13 @@ export function Inicio({ jogar, abrirSobre }) {
         <Botao texto="Jogar" acao={jogar} />
         <Botao texto="Sobre" acao={abrirSobre} secundario />
       </View>
-      <Mascote />
+      <FloatingImage
+                source={require('../css/img/nerd.png')}
+                distance={14}
+                duration={1100}
+                delay={0}
+                style={estilos.image2}
+              />
     </View>
   );
 }
@@ -91,11 +96,13 @@ export function Sobre({ voltar }) {
     <View style={[estilos.painel, estilos.painelEntrada]}>
       <Text accessibilityRole="header" style={estilos.titulo}>Sobre</Text>
       <Text style={estilos.descricao}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.
+        Essa é Cindy, ela está aqui para testar seus conhecimentos de desenvolvimento web.
+      </Text>
+      <Text style={estilos.descricao}>
+        Responda as 10 perguntas que ela montou e veja o quão conhecido você é!
       </Text>
       <Botao texto="Voltar ao início" acao={voltar} secundario />
+      <Image source={require('../css/img/duvida.png')} resizeMode="contain" style={estilos.image3} />
     </View>
   );
 }
@@ -125,7 +132,7 @@ export function Identificacao({ nome, alterarNome, iniciar, voltar }) {
           value={nome}
         />
       </View>
-      <Mascote />
+      
       <Botao texto="PRÓXIMO" acao={iniciar} desabilitado={!nome.trim()} />
     </View>
   );
@@ -186,6 +193,7 @@ export function Resultado({ acertos, nome, total, reiniciar }) {
                 distance={14}
                 duration={1100}
                 delay={0}
+                style={estilos.image}
               />
     </View>
   );
