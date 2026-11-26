@@ -107,7 +107,7 @@ export function Sobre({ voltar }) {
       <Image source={require('../css/img/duvida.png')} resizeMode="contain" style={[
                   estilos.image3, {
                     
-                    left: (width - 620) / 2,
+                    left: (width - 420) / 2,
                   },
                 ]} />
     </View>

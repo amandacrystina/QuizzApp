@@ -108,8 +108,8 @@ export const estilos = StyleSheet.create({
   },
   image3: {
     position: 'absolute',
-    bottom: -600,
-    width: 600,
-    height: 600
+    bottom: -380,
+    width: 400,
+    height: 400
   },
 });
