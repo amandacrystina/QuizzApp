@@ -25,6 +25,12 @@ Com o servidor do Expo rodando, pressione **w** no terminal para abrir o quiz no
 | `npm run ios` | Solicita a abertura no simulador de iOS. Requer macOS com Xcode e um simulador configurado. |
 | `npx expo export --platform web` | Gera os arquivos estáticos da versão web em `dist/`. |
 
+## Publicação no GitHub Pages
+
+Em **Settings → Pages → Build and deployment → Source**, selecione **GitHub Actions**. Para publicar manualmente, abra **Actions → Publicar no GitHub Pages → Run workflow** e selecione a branch `main`. Os próximos pushes para `main` também geram e publicam a versão web.
+
+O endereço do projeto é [amandacrystina.github.io/QuizzApp/](https://amandacrystina.github.io/QuizzApp/). O `baseUrl` em `app.json` ajusta os caminhos dos arquivos gerados para o prefixo `/QuizzApp`.
+
 ## Como o JavaScript funciona
 
 - [index.js](index.js) registra o componente `App` como ponto de entrada do Expo.
