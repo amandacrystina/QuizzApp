@@ -11,6 +11,7 @@ export const perguntas = [
   ['Qual arquivo declara as dependências de um projeto npm?', ['app.json', 'index.js', 'package.json', '.gitignore'], 2],
 ];
 
+
 export function calcularResultado(respostas) {
   const acertos = perguntas.filter(([, , correta], indice) => respostas[indice] === correta).length;
   return { acertos };
