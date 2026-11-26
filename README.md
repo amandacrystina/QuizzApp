@@ -42,3 +42,18 @@ Adicione um item ao array `perguntas` em [dados/perguntas.js](dados/perguntas.js
 ```
 
 Nesse exemplo, `1` aponta para `const`, a segunda alternativa. O total exibido e a barra de progresso se ajustam automaticamente ao tamanho do array.
+
+## Telas
+### Mobile
+<img width="448" height="810" alt="{3E8DE954-F700-44BB-9B96-9106ACCBBB98}" src="https://github.com/user-attachments/assets/1dd2f1b8-a60c-44de-87d2-8b3fc7879aa0" />
+<img width="408" height="805" alt="{4535A7A8-8AC2-4702-BAB7-E73FC4465986}" src="https://github.com/user-attachments/assets/37fcd1f4-32e6-42aa-ae7f-fe79868e1866" />
+<img width="404" height="809" alt="{E4A58CB9-CF8A-44A2-A49A-8637E57DA9D5}" src="https://github.com/user-attachments/assets/b40cc989-fc02-4fd3-8b9d-970f99471f92" />
+<img width="401" height="804" alt="{46586B3E-0BEC-4066-9556-6799EBB1A959}" src="https://github.com/user-attachments/assets/36136210-d14a-49cb-a5a8-01652712c98d" />
+<img width="398" height="793" alt="{4E1E7A9C-864C-4CF8-8EA5-8EF0DEF7BCD5}" src="https://github.com/user-attachments/assets/9880d68b-6735-42dd-8913-9fa77303fe0c" />
+
+### Pc
+<img width="1493" height="964" alt="{D82AA491-AA68-444D-8571-12FD5E2BDB9D}" src="https://github.com/user-attachments/assets/9bcb312f-a4ea-4379-ba11-a6dbabbcbb0c" />
+<img width="1453" height="961" alt="{916A8224-2B07-42A9-9D2C-32C535938D10}" src="https://github.com/user-attachments/assets/c3ab4e31-a18b-4f42-89c0-bd3b79576130" />
+<img width="1469" height="968" alt="{78535C49-0A56-4CCD-98EB-139E96A36720}" src="https://github.com/user-attachments/assets/4073705a-204a-4f34-841b-d979f8bd794c" />
+<img width="1444" height="953" alt="{5E181228-6F5F-4F79-8C64-D80DCABFB83F}" src="https://github.com/user-attachments/assets/137b5536-00e0-4c62-903e-94b852b4e5eb" />
+<img width="1487" height="958" alt="{A1C86A1A-5A92-427A-A6B9-53B7C963DFD3}" src="https://github.com/user-attachments/assets/0a938ac9-4381-4d9d-8878-34c3ea7db196" />
