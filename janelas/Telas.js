@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Animated, Image, Pressable, Text, TextInput, View } from 'react-native';
+import { Animated, Image, Pressable, Text, TextInput, View, useWindowDimensions } from 'react-native';
 import { estilos } from '../css/estilos';
 
 function FloatingImage({ source, style, distance = 12, duration = 1200, delay = 0 }) {
@@ -60,16 +60,10 @@ function Botao({ texto, acao, desabilitado = false, secundario = false }) {
   );
 }
 
-function Mascote() {
-  return (
-    <View style={estilos.areaMascote}>
-      <View style={estilos.haloMascote} />
-      <Image source={require('../css/img/resultado.png')} resizeMode="contain" style={estilos.mascote} />
-    </View>
-  );
-}
-
 export function Inicio({ jogar, abrirSobre }) {
+  
+  const { width } = useWindowDimensions();
+
   return (
     <View style={[estilos.painel, estilos.painelEntrada]}>
       <View style={estilos.cabecalhoInicio}>
@@ -85,13 +79,21 @@ export function Inicio({ jogar, abrirSobre }) {
                 distance={14}
                 duration={1100}
                 delay={0}
-                style={estilos.image2}
+                style={[
+                  estilos.image2, {
+                    width: 380,
+                    left: (width - 380) / 2,
+                  },
+                ]}
               />
     </View>
   );
 }
 
 export function Sobre({ voltar }) {
+
+  const { width } = useWindowDimensions();
+
   return (
     <View style={[estilos.painel, estilos.painelEntrada]}>
       <Text accessibilityRole="header" style={estilos.titulo}>Sobre</Text>
@@ -102,7 +104,12 @@ export function Sobre({ voltar }) {
         Responda as 10 perguntas que ela montou e veja o quão conhecido você é!
       </Text>
       <Botao texto="Voltar ao início" acao={voltar} secundario />
-      <Image source={require('../css/img/duvida.png')} resizeMode="contain" style={estilos.image3} />
+      <Image source={require('../css/img/duvida.png')} resizeMode="contain" style={[
+                  estilos.image3, {
+                    
+                    left: (width - 620) / 2,
+                  },
+                ]} />
     </View>
   );
 }

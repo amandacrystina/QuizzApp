@@ -6,10 +6,24 @@ const textoSecundario = '#b7c5db';
 
 export const estilos = StyleSheet.create({
   fundo: { flex: 1, backgroundColor: '#0d1424' },
-  pagina: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
+  pagina: { 
+    flexGrow: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    padding: 20, 
+    overflow: 'hidden',
+    width: '100%',
+  },
   painel: {
-    width: '100%', maxWidth: 540, padding: 22, gap: 18, borderRadius: 24,
-    backgroundColor: '#172238', borderWidth: 1, borderColor: '#2c3a55',
+    width: '100%', 
+    maxWidth: 540, 
+    padding: 22, 
+    gap: 18, 
+    borderRadius: 24,
+    backgroundColor: '#172238', 
+    borderWidth: 1, 
+    borderColor: '#2c3a55',
+    
   },
   transicao: { width: '100%', maxWidth: 540 },
   painelEntrada: { paddingVertical: 28, gap: 24 },
@@ -81,10 +95,9 @@ export const estilos = StyleSheet.create({
   },
   image: {
     position: 'absolute',
-    right: 0,
-    bottom: -300,
-    width: 380,
-    height: 380,
+    bottom: -370,
+    width: 450,
+    height: 450,
   },
   image2: {
     position: 'absolute',
@@ -95,9 +108,8 @@ export const estilos = StyleSheet.create({
   },
   image3: {
     position: 'absolute',
-    bottom: -370,
-    width: 430,
-    height: 430,
-    right:-45,
+    bottom: -600,
+    width: 600,
+    height: 600
   },
 });
