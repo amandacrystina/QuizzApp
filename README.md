@@ -6,6 +6,8 @@ Na tela inicial, você pode jogar ou abrir a tela **Sobre**. Para jogar, informe
 
 ## Nome dos devs
 Amanda Crystina Gomes Gonzaga 
+
+
 Taynara Vital da Silva 
 
 ## Como rodar
